@@ -4,7 +4,7 @@ from io import StringIO
 
 import datetime
 from pytz import timezone
-from github import Github, Issue
+from github import Github
 
 import os
 
