@@ -6,6 +6,16 @@
 | 2023-11-02 | 16:54:57 | 25.82 | 29.67 | 36.62 | 0.135 | 0 |
 
 ## Setting
+### Cron
+- 10분마다 AWS에서 기상 데이터를 수집후 ThingSpeak에 업로드
+- ThingSpeak에 실시간으로 업로드 된 데이터를 위 **Current Data**에 테이블 형태로 입력
+
+```
+schedule:
+- cron:  "*/10 * * * *"
+```
+
+### GitHub
 ⚙︎ Repository Settings - (Security) Secrets and variables - Actions - New repository secret으로 생성
 - WRITE_KEY: thingspeak write api key 입력
 - READ_KEY: thingspeak read api key 입력
