@@ -31,7 +31,7 @@ df.drop(exclude_list, axis=1, inplace=True)
 
 df_ts = df.tail(1)
 
-api_key = os.environ.get('THINGSPEAK_WRITE_API')
+api_key = os.environ.get('WRITE_KEY')
 
 field_1 = df_ts['온도'].values[0]
 field_2 = df_ts['습도'].values[0]
