@@ -33,4 +33,5 @@ jobs:
       env: 
         WRITE_KEY: ${{ secrets.WRITE_KEY }}
         READ_KEY: ${{ secrets.READ_KEY }}
-      run: python update_thingspeak.py
+        TOKEN: ${{ secrets.TOKEN }}
+      run: python main.py

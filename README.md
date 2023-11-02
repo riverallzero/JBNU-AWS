@@ -2,11 +2,19 @@
 
 ## Setting
 ### ThingSpeak
-channel의 write, read api 가져와 ⚙︎ Settings - (Security) Secrets and variables - Actions - New repository secret에 저장
+
+⚙︎ Repository Settings - (Security) Secrets and variables - Actions - New repository secret으로 생성
 - WRITE_KEY
 - READ_KEY 
 
+⚙︎ Settings - Developer settings - Personal access tokens - Token(classic) - Generate new token으로 생성
+- TOKEN
+
+<details>
+<summary>Secret 설정하기</summary>
+
 ![](.asset/secret.png)
+</details>
 
 <details>
 <summary>Channel 만들기</summary>
