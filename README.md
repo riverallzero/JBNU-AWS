@@ -1,20 +1,15 @@
 # JBNU-AWS
 
-## Setting
-### ThingSpeak
+## Current
 
+
+
+## Setting
 ⚙︎ Repository Settings - (Security) Secrets and variables - Actions - New repository secret으로 생성
 - WRITE_KEY
-- READ_KEY 
+- READ_KEY
 
-⚙︎ Settings - Developer settings - Personal access tokens - Token(classic) - Generate new token으로 생성
-- TOKEN
-
-<details>
-<summary>Secret 설정하기</summary>
-
-![](.asset/secret.png)
-</details>
+### ThingSpeak
 
 <details>
 <summary>Channel 만들기</summary>

@@ -33,4 +33,24 @@ jobs:
       env: 
         WRITE_KEY: ${{ secrets.WRITE_KEY }}
         READ_KEY: ${{ secrets.READ_KEY }}
-      run: python update_data.py
+      run: python main.py
+    - name: Set Git Config
+      run: |
+        git config --global user.name "riverallzero"
+        git config --global user.email "riverallzero@naver.com"
+    - name: Check for changes
+      id: check_changes
+      run: |
+        if [ -n "$(git diff --name-only README.md)" ]; then
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        fi
+    - name: Commit Update
+      run: |
+        echo steps.check_changes.outputs.has_changes=${{steps.check_changes.outputs.has_changes}}
+        if ${{steps.check_changes.outputs.has_changes}} = 'true'; then
+          git add README.md
+          git commit -m "Updated current data"
+          git push
+        else
+          echo "No changes detected."
+        fi
