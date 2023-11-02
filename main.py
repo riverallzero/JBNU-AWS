@@ -61,9 +61,9 @@ def read_data():
     today = datetime.datetime.now(seoul_timezone)
 
     title = f'{today.strftime("%Y-%m-%d")}'
-    TOKEN = f'token {os.environ["TOKEN"]}'
+    TOKEN = os.environ["TOKEN"]
     REPO_NAME = 'JBNU-AWS'
-    repo = Github(TOKEN).get_user().get_repo(REPO_NAME)
+    repo = Github(login_or_token=TOKEN).get_user().get_repo(REPO_NAME)
     body = df
 
     def add_comment_to_issue(repo, issue_number, comment):
