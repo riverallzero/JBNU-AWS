@@ -33,5 +33,4 @@ jobs:
       env: 
         WRITE_KEY: ${{ secrets.WRITE_KEY }}
         READ_KEY: ${{ secrets.READ_KEY }}
-        TOKEN: ${{ secrets.TOKEN }}
-      run: python main.py
+      run: python update_data.py
