@@ -61,7 +61,7 @@ def read_data():
     today = datetime.datetime.now(seoul_timezone)
 
     title = f'{today.strftime("%Y-%m-%d")}'
-    TOKEN = os.environ['TOKEN']
+    TOKEN = f'token {os.environ["TOKEN"]}'
     REPO_NAME = 'JBNU-AWS'
     repo = Github(TOKEN).get_user().get_repo(REPO_NAME)
     body = df
