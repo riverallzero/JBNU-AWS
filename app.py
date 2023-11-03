@@ -37,7 +37,7 @@ def download_aws():
         raw_data = requests.get(url).text
 
         col_name = ['날짜', '온도', '습도', 'x_1', 'x_2', 'x_3', '일사', '풍향', 'x_4', 'x_5',
-                    'x_6', 'x_7', 'x_8', '픙속(1분 평균)', '강우', '최대순간풍속', '배터리전압']
+                    'x_6', 'x_7', 'x_8', '풍속(1분 평균)', '강우', '최대순간풍속', '배터리전압']
         df = pd.read_csv(StringIO(raw_data), header=None, delimiter=',', names=col_name, index_col=False)
 
         exclude_list = []
@@ -70,7 +70,7 @@ def draw_graph():
     # [min, max, past_mean, now_mean]
     feature_list = []
 
-    for item in ['온도', '습도', '강우', '픙속(1분 평균)']:
+    for item in ['온도', '습도', '강우', '풍속(1분 평균)']:
         week_past_min = week_past[item].min()
         week_past_max = week_past[item].max()
         week_now_min = week_now[item].min()
