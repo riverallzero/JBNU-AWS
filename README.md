@@ -8,9 +8,19 @@
 ## Description
 - 10분마다 AWS에서 기상 데이터를 수집후 ThingSpeak에 업로드
 - ThingSpeak에 실시간으로 업로드 된 데이터를 위 **Current Data**에 테이블 형태로 입력
+    - Github Action workflow 이용
+    - 아래 **Setting** 참조
 
 <div align="center" style="display:flex;"> 
     <img src='.asset/thingspeak-result.png' width='600'/>
+</div>
+
+- 1주일 평균 기상데이터와 1주일 이전 평균 기상데이터 비교 대시보드
+  - ```python app.py``` 실행
+  - ```http://127.0.0.1:5000``` 연결
+    
+<div align="center" style="display:flex;"> 
+    <img src='.asset/dashboard.png' width='600'/>
 </div>
 
 ## Setting

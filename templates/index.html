@@ -1,0 +1,178 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>AWS Dashboard</title>
+    <meta name="viewport" content="width=device-width">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.2/justgage.js"></script>
+    <style>
+        header {
+            margin-top: 80px;
+        }
+        .wrapper {
+            position: relative;
+            width: 1000px;
+            height: 480px;
+            margin: 50px auto 0 auto;
+            padding-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            clear: both;
+        }
+
+        .box {
+            float: left;
+            width: 25%;
+            height: 40%;
+            box-sizing: border-box;
+            margin-top: 15px;
+        }
+
+        .gauge {
+            width: 250px;
+            height: 240px;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1 style="text-align: center">AWS 1주일 평균기상 대시보드</h1>
+    <h3 style="text-align: center">
+        <code>Week: {{date_list[0]}} ~ {{date_list[1]}}</code>
+        <br>
+        <code>Week: {{date_list[2]}} ~ {{date_list[3]}}</code>
+    </h3>
+</header>
+<div class="wrapper">
+    <div class="box">
+        <div id="g1" class="gauge"></div>
+    </div>
+    <div class="box">
+        <div id="g2" class="gauge"></div>
+    </div>
+    <div class="box">
+        <div id="g3" class="gauge"></div>
+    </div>
+        <div class="box">
+        <div id="g4" class="gauge"></div>
+    </div>
+    <div class="box">
+        <div id="g5" class="gauge"></div>
+    </div>
+    <div class="box">
+        <div id="g6" class="gauge"></div>
+    </div>
+    <div class="box">
+        <div id="g7" class="gauge"></div>
+    </div>
+    <div class="box">
+        <div id="g8" class="gauge"></div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        var g1 = new JustGage({
+            id: "g1",
+            value: {{ feature_list[0][-1] }},
+            min: {{ feature_list[0][2] }},
+            max: {{ feature_list[0][3] }},
+            title: "온도",
+            symbol: "°C",
+            reverse: false,
+            gaugeWidthScale: 0.6,
+            counter: true,
+            levelColors: ["#EA642D"]
+        });
+
+        var g2 = new JustGage({
+            id: "g2",
+            value: {{ feature_list[1][-1] }},
+            min: {{ feature_list[1][2] }},
+            max: {{ feature_list[1][3] }},
+            title: "습도",
+            symbol: "%",
+            reverse: false,
+            gaugeWidthScale: 0.6,
+            counter: true,
+            levelColors: ["#649E4E"]
+        });
+        var g3 = new JustGage({
+            id: "g3",
+            value: {{ feature_list[2][-1] }},
+            min: {{ feature_list[2][2] }},
+            max: {{ feature_list[2][3] }},
+            title: "강우",
+            symbol: 'mm',
+            reverse: false,
+            gaugeWidthScale: 0.6,
+            counter: true,
+            levelColors: ["#3F86A9"]
+        });
+        var g4 = new JustGage({
+            id: "g4",
+            value: {{ feature_list[3][-2] }},
+            min: {{ feature_list[3][2] }},
+            max: {{ feature_list[3][3] }},
+            title: "풍속(1분 평균)",
+            symbol: "m/s",
+            reverse: false,
+            gaugeWidthScale: 0.6,
+            counter: true,
+            levelColors: ["#A15EB6"],
+        });
+
+        var g5 = new JustGage({
+            id: "g5",
+            value: {{ feature_list[0][-2] }},
+            min: {{ feature_list[0][0] }},
+            max: {{ feature_list[0][1] }},
+            symbol: "°C",
+            reverse: false,
+            gaugeWidthScale: 0.6,
+            counter: true,
+            levelColors: ["#EAC5B7"],
+        });
+
+        var g6 = new JustGage({
+            id: "g6",
+            value: {{ feature_list[1][-2] }},
+            min: {{ feature_list[1][0] }},
+            max: {{ feature_list[1][1] }},
+            symbol: "%",
+            reverse: false,
+            gaugeWidthScale: 0.6,
+            counter: true,
+            levelColors: ["#C2E4B4"]
+        });
+        var g7 = new JustGage({
+            id: "g7",
+            value: {{ feature_list[2][-2] }},
+            min: {{ feature_list[2][0] }},
+            max: {{ feature_list[2][1] }},
+            symbol: 'mm',
+            reverse: false,
+            gaugeWidthScale: 0.6,
+            counter: true,
+            levelColors: ["#B4D3E2"]
+        });
+        var g8 = new JustGage({
+            id: "g8",
+            value: {{ feature_list[3][-2] }},
+            min: {{ feature_list[3][0] }},
+            max: {{ feature_list[3][1] }},
+            symbol: 'm/s',
+            reverse: false,
+            gaugeWidthScale: 0.6,
+            counter: true,
+            levelColors: ["#CDA6DA"]
+        });
+    });
+</script>
+</body>
+
+</html>
