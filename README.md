@@ -19,9 +19,7 @@
   - ```python app.py``` 실행
   - ```http://127.0.0.1:5000``` 연결
     
-<div align="center" style="display:flex;"> 
-    <img src='.asset/dashboard.png' width='600'/>
-</div>
+![](.asset/dashboard.png)
 
 ## Setting
 ### Cron
