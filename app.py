@@ -16,7 +16,7 @@ year = today.year
 month = str(today.month).zfill(2)
 day = str(today.day).zfill(2)
 
-end_date = pd.to_datetime(f'{year}-{month}-{day}', format='%Y-%m-%d') + pd.Timedelta(days=-3)
+end_date = pd.to_datetime(f'{year}-{month}-{day}', format='%Y-%m-%d')
 start_date = end_date + pd.Timedelta(days=-13)
 
 date_range = pd.date_range(start=f'{start_date.year}-{start_date.month}-{start_date.day}',
@@ -30,7 +30,7 @@ def download_aws():
 
     df_list = []
     for date in tqdm(date_range):
-        year, month, day = date.year, date.month, date.day
+        year, month, day = date.year, str(date.month).zfill(2), str(date.day).zfill(2)
 
         url = f'http://203.239.47.148:8080/dspnet.aspx?Site=85&Dev=1&Year={year}&Mon={month}&Day={day}'
 
@@ -50,13 +50,13 @@ def download_aws():
         df_list.append(df)
 
     df = pd.concat(df_list)
-    df.to_csv(os.path.join(output_dir, f'{start_date.year}{start_date.month}{start_date.day}-{end_date.year}{end_date.month}{end_date.day}.csv'), index=False)
+    df.to_csv(os.path.join(output_dir, f'{start_date.year}{str(start_date.month).zfill(2)}{str(start_date.day).zfill(2)}-{end_date.year}{str(end_date.month).zfill(2)}{str(end_date.day).zfill(2)}.csv'), index=False)
 
 
 @app.route('/')
 def draw_graph():
     df = pd.read_csv(
-        f'./data/{start_date.year}{start_date.month}{start_date.day}-{end_date.year}{end_date.month}{end_date.day}.csv')
+        f'./data/{start_date.year}{str(start_date.month).zfill(2)}{str(start_date.day).zfill(2)}-{end_date.year}{str(end_date.month).zfill(2)}{str(end_date.day).zfill(2)}.csv')
 
     days_7 = date_range[6]
 
