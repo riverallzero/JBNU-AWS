@@ -9,7 +9,7 @@
 - 10분마다 AWS에서 기상 데이터를 수집후 ThingSpeak에 업로드
 - ThingSpeak에 실시간으로 업로드 된 데이터를 위 [**Current Data**](https://github.com/riverallzero/JBNU-AWS#current-data)에 테이블 형태로 입력
     - Github Action workflow 이용
-    - 아래 [**Setting**](https://github.com/riverallzero/JBNU-AWS#setting) 참조
+    - 아래 [**Setting**](https://github.com/riverallzero/JBNU-AWS#thingspeak) 참조
 
 <div align="center" style="display:flex;"> 
     <img src='.asset/thingspeak-result.png' width='600'/>
